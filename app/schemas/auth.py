@@ -17,7 +17,7 @@ class AdminUserCreate(BaseModel):
     position: Optional[str] = None
 
 class UserLogin(BaseModel):
-    username: str
+    email: str
     password: str
 
 class Token(BaseModel):
