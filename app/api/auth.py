@@ -23,6 +23,7 @@ async def register(user_data: UserCreate):
         return UserResponse(
             id=str(user.id),
             full_name=user.full_name,
+            username=user.username,
             email=user.email,
             phone=user.phone,
             company=user.company,
@@ -52,6 +53,7 @@ async def register_admin(user_data: AdminUserCreate):
         return UserResponse(
             id=str(user.id),
             full_name=user.full_name,
+            username=user.username,
             email=user.email,
             phone=user.phone,
             company=user.company,
