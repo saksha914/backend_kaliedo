@@ -79,7 +79,7 @@ async def login(user_credentials: UserLogin):
     user_service = UserService(db.users)
     
     user = await user_service.authenticate_user(
-        user_credentials.username,
+        user_credentials.email,
         user_credentials.password
     )
     
