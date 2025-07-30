@@ -25,7 +25,9 @@ class UserService:
             raise ValueError("Email already registered")
 
         # Create new user without authentication
+        hashed_password = self.get_password_hash(user_data.password)
         user_dict = user_data.dict()
+        user_dict["hashed_password"] = hashed_password
         user_dict["created_at"] = datetime.utcnow()
         user_dict["updated_at"] = datetime.utcnow()
         user_dict["role"] = "user"
