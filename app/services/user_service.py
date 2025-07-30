@@ -58,7 +58,8 @@ class UserService:
         user_dict["id"] = result.inserted_id
         return UserModel(**user_dict)
 
-    async def authenticate_user(self, email: str, password: str) -> Optional[UserModel]:                                                                                    │ +     """Authenticate user with email and password."""                                                                                                                    │  user = await self.collection.find_one({"email": email})    
+    async def authenticate_user(self, email: str, password: str) -> Optional[UserModel]:
+        user = await self.collection.find_one({"email": email})
         if not user:
             return None
         if not self.verify_password(password, user["hashed_password"]):
